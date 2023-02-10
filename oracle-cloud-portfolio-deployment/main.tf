@@ -21,9 +21,16 @@ resource "oci_core_instance" "portfolio" {
     memory_in_gbs = var.instance_memory_in_gbs
   }
 
+  create_vnic_details {
+    subnet_id        = var.instance_subnet_id
+    assign_public_ip = true
+  }
+
   metadata = {
     ssh_authorized_keys = file(var.instance_ssh_authorized_keys)
   }
+
+  preserve_boot_volume = false
 }
 
 # Outputs
