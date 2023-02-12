@@ -31,6 +31,18 @@ resource "oci_core_instance" "portfolio" {
   }
 
   preserve_boot_volume = false
+
+#  connection {
+#    type = "ssh"
+#    user = "ubuntu"
+#    host = self.public_ip
+#  }
+#
+#  provisioner "remote-exec" {
+#    inline = [
+#      "echo foo bar"
+#    ]
+#  }
 }
 
 # Outputs
