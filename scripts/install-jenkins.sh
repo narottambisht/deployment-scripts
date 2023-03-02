@@ -1,6 +1,3 @@
-#!/bin/bash
-# use this script file to setup anything in newly provisioned machine using terraform
-# this is a script to setup jenkins in this newly provisioned machine using terraform.
 sudo apt upgrade -y
 
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
