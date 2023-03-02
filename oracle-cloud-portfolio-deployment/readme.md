@@ -1,4 +1,3 @@
-# DEPLOYMENT SCRIPTS
 ## Deploy Portfolio Project to Oracle Cloud
 This project is to deploy my personal portfolio project to oracle cloud.
 

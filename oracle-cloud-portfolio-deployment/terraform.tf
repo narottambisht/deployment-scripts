@@ -19,7 +19,7 @@ variable "instance_shape" {
   type        = string
 }
 
-variable "instance_ssh_authorized_keys" {
+variable "instance_ssh_public_key" {
   description = "Provide one or more public SSH keys to be included in the ~/.ssh/authorized_keys file for the default user on the instance. With this key you'll be able to SSH into this instance."
   type        = string
 }
@@ -59,4 +59,9 @@ variable "private_key_fingerprint" {
 variable "user_private_key_path" {
   description = "Identifier path of key for the user can be found in ~/.oci/config"
   type        = string
+}
+
+variable "instance_ssh_private_key" {
+  description = ""
+  type = string
 }

@@ -27,22 +27,29 @@ resource "oci_core_instance" "portfolio" {
   }
 
   metadata = {
-    ssh_authorized_keys = file(var.instance_ssh_authorized_keys)
+    ssh_authorized_keys = file(var.instance_ssh_public_key)
   }
 
   preserve_boot_volume = false
 
-#  connection {
-#    type = "ssh"
-#    user = "ubuntu"
-#    host = self.public_ip
-#  }
-#
-#  provisioner "remote-exec" {
-#    inline = [
-#      "echo foo bar"
-#    ]
-#  }
+  connection {
+    type = "ssh"
+    user = "ubuntu"
+    host = self.public_ip
+    private_key = file(var.instance_ssh_private_key)
+  }
+
+  provisioner "file" {
+    source      = "setup.sh"
+    destination = "/tmp/setup.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/setup.sh",
+      "sudo sh -x /tmp/setup.sh",
+    ]
+  }
 }
 
 # Outputs
